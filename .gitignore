@@ -4,3 +4,6 @@
 *.synctex.gz
 *.bcf
 *.xml
+*.out
+*.log
+*.toc
