@@ -13,6 +13,9 @@
 \usepackage[color=black]{siunitx}
 \usepackage{tikz}
 \usepackage{dashrule}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+
+\definecolor{shadow}{RGB}{210,241,241}
 
 \newcommand{\spare}{\vspace{-1em}\begin{center}\color{structurecolor}\hdashrule[0.5ex]{\textwidth}{1pt}{1pt}\end{center}\vspace{-1em}}
 \usetikzlibrary{shapes,backgrounds}
@@ -229,6 +232,10 @@
     \end{solution}
 \end{collections}
 
+\begin{theorem}
+    令 $S$ 为集合，设 $|S| = n$，则$|\symcal{P}(S)| = 2^n$。
+\end{theorem}
+
 \subsection{有序 $n$ 元组与序偶}
 集合中的元素是无序排列的，所以我们需要一种结构来表示有序的聚集，这便是有序 $n$ 元组。
 \begin{definition}[有序 $n$ 元组与序偶]\label{def:有序n元组与序偶}
@@ -245,4 +252,117 @@
     \end{solution}
 \end{collections}
 
+\subsection{笛卡尔积}
+\begin{definition}[笛卡尔积]\label{def:笛卡尔积}
+    令 $A$ 和 $B$ 为集合，$A$ 与 $B$ 的笛卡尔积（记作 $A \times B$）是所有序偶 $(a,b)$ 的集合，其中 $a \in A$ 且 $b \in B$。
+    \begin{equation*}
+        A \times B = \{(a,b) \mid a \in A \land b \in B \}
+    \end{equation*}
+\end{definition}
+
+\begin{collections}
+    \begin{example}
+        已知$A = \{1, 2\}$，$B = \{a, b, c\}$，求 $A \times B$ 和 $B \times A$。
+    \end{example}
+    \begin{solution}
+        $$A \times B = \{(1, a), (1, b), (1, c), (2, a), (2, b), (2, c)\}$$
+        $$B \times A = \{(a, 1), (a, 2), (b, 1), (b, 2), (c, 1), (c, 2)\}$$
+    \end{solution}
+\end{collections}
+
+\section{集合的运算}
+\begin{introduction}
+    \item 交集
+    \item 并集
+    \item 补集
+    \item 对称差
+\end{introduction}
+
+\subsection{交集}
+\begin{definition}[集合的交集]\label{def:交集}
+    令 $A$ 与 $B$ 为集合。集合 $A$ 与 $B$ 的交集是一个集合，它包含集合 $A$ 与 $B$ 中共有的元素，记作 $A \cap B$。
+    \begin{equation*}
+        A \cap B = \{x \mid x \in A \land x \in B \}
+    \end{equation*}
+\end{definition}
+
+集合 $A$ 与 $B$ 的交集可以用图 \ref{fig:交集文氏图} 中的阴影部分表示。
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}[scale=0.75]
+        \begin{scope}
+            \clip (2,2) circle (1.5);
+            \fill[shadow] (4,2) circle (1.5);
+        \end{scope}
+
+        \draw[thick] (-0.5,0) rectangle (6.5,4);
+        \draw[thick] (2,2) circle (1.5);
+        \draw[thick] (4,2) circle (1.5);
+
+        \node[below left] at (6.5,4) {$U$};
+        \node at (1.75,2) {$B$};
+        \node at (4.25,2) {$A$};
+    \end{tikzpicture}
+    \caption{$A \cap B$ 的文氏图}
+    \label{fig:交集文氏图}
+\end{figure}
+
+由此我们还可以定义一组集合的交集。
+\begin{definition}[多个集合的交集]\label{def:多个交集}
+    一组集合的交集是包含这组集合中所有成员集合共有的元素的集合。
+\end{definition}
+
+我们用符号
+\begin{equation*}
+    \bigcap_{i=1}^n A_i=A_1 \cap A_2 \cap \cdots \cap A_i
+\end{equation*}
+表示 $A_1$，$A_2$，$\cdots$，$A_n$ 的交集。
+
+\subsection{并集}
+\begin{definition}[集合的并集]\label{def:并集}
+    令 $A$ 与 $B$ 为集合。集合 $A$ 与 $B$ 的并集是一个集合，它包含 $A$ 和 $B$ 中的所有元素，记作 $A \cup B$。
+    \begin{equation*}
+        A \cup B = \{x \mid x \in A \lor x \in B\}
+    \end{equation*}
+\end{definition}
+
+集合 $A$ 与 $B$ 的并集可以用图 \ref{fig:并集文氏图} 中的阴影部分表示。
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}[scale=0.75]
+        \begin{scope}
+            \clip (2,2) circle (1.5);
+            \fill[shadow] (4,2) circle (1.5);
+        \end{scope}
+        \begin{scope}
+            \clip (2,2) circle (1.5) (-0.5,0) rectangle (6.5,4);
+            \fill[shadow] (4,2) circle (1.5);
+        \end{scope}
+        \begin{scope}
+            \clip (4,2) circle (1.5) (-0.5,0) rectangle (6.5,4);
+            \fill[shadow] (2,2) circle (1.5);
+        \end{scope}
+
+        \draw[thick] (-0.5,0) rectangle (6.5,4);
+        \draw[thick] (2,2) circle (1.5);
+        \draw[thick] (4,2) circle (1.5);
+
+        \node[below left] at (6.5,4) {$U$};
+        \node at (1.75,2) {$B$};
+        \node at (4.25,2) {$A$};
+    \end{tikzpicture}
+    \caption{$A \cup B$ 的文氏图}
+    \label{fig:并集文氏图}
+\end{figure}
+
+同交集一样，由此我们还可以定义一组集合的并集。
+\begin{definition}[多个集合的并集]\label{def:多个并集}
+    一组集合的交集是包含这组集合中所有成员集合的元素的集合。
+\end{definition}
+
+我们用符号
+\begin{equation*}
+    \bigcup_{i=1}^n A_i=A_1 \cup A_2 \cup \cdots \cup A_i
+\end{equation*}
+表示 $A_1$，$A_2$，$\cdots$，$A_n$ 的并集。
 \end{document}
