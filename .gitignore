@@ -1,6 +1,7 @@
 /ENV
 /__pycache__
 *.pdf
+*.aux
 *.synctex.gz
 *.bcf
 *.xml
