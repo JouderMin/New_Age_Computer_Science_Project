@@ -1,4 +1,4 @@
-\documentclass[lang=cn, chinesefont=founder, math=cm, color=cyan, citestyle=gb7714-2015, bibstyle=gb7714-2015]{elegantbook}
+\documentclass[lang=cn, chinesefont=founder, color=cyan, citestyle=gb7714-2015, bibstyle=gb7714-2015]{elegantbook}
 
 \setmonofont{texgyrecursor}[
     UprightFont = *-regular ,
@@ -321,6 +321,32 @@
     \bigcap_{i=1}^n A_i=A_1 \cap A_2 \cap \cdots \cap A_i
 \end{equation*}
 表示 $A_1$，$A_2$，$\cdots$，$A_n$ 的交集。
+\begin{collections}
+    \begin{example}
+        已知 $A = \{ 1, 2, 3 \}$，$B = \{ 2, 3, 4\}$，求 $A \cap B$。
+    \end{example}
+    \begin{solution}
+        $A \cap B = \{2, 3\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{ x \mid 10 < x \leq 20 \}$，$B = \{ x \mid 0 < x \leq 10 \}$，求 $A \cap B$。
+    \end{example}
+    \begin{solution}
+        $A \cap B = \varnothing$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{ x \mid 10 \leq x \leq 20 \}$，$B = \{ x \mid 0 \leq x \leq 10 \}$，求 $A \cap B$。
+    \end{example}
+    \begin{solution}
+        $A \cap B = \{10\}$
+    \end{solution}
+\end{collections}
 
 \subsection{并集}
 \begin{definition}[集合的并集]\label{def:并集}
@@ -369,6 +395,32 @@
     \bigcup_{i=1}^n A_i=A_1 \cup A_2 \cup \cdots \cup A_i
 \end{equation*}
 表示 $A_1$，$A_2$，$\cdots$，$A_n$ 的并集。
+\begin{collections}
+    \begin{example}
+        已知 $A = \{ 1, 2, 3 \}$，$B = \{ 2, 3, 4\}$，求 $A \cup B$。
+    \end{example}
+    \begin{solution}
+        $A \cap B = \{1, 2, 3, 4\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{ x \mid 10 < x \leq 20 \}$，$B = \{ x \mid 0 < x \leq 10 \}$，求 $A \cup B$。
+    \end{example}
+    \begin{solution}
+        $A \cup B = \{ x \mid 0 < x < 20\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{ x \mid 10 < x \leq 20 \}$，$B = \{ x \mid 0 < x \leq 10 \}$，求 $A \cup B$。
+    \end{example}
+    \begin{solution}
+        $A \cup B = \{ x \mid 0 < x < 20 \land x \neq 10 \}$
+    \end{solution}
+\end{collections}
 
 \subsection{差集}
 \begin{definition}[集合的差集]\label{def:差集}
