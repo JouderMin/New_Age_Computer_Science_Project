@@ -1,5 +1,5 @@
-/ENV
-/__pycache__
+ENV/
+__pycache__/
 *.pdf
 *.aux
 *.synctex.gz
@@ -8,3 +8,5 @@
 *.out
 *.log
 *.toc
+*.listing
+_minted-*/
