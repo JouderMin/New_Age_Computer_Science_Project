@@ -12,27 +12,51 @@
 \ExplSyntaxOff
 
 %\usepackage[english]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage[dvipsnames, svgnames, x11names]{xcolor}
-\usepackage[fontset=fandol]{ctex}
-\usepackage{physics}
-\usepackage[per-mode = symbol]{siunitx}
-\usepackage{tikz}
-\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}, math-style=ISO, mathrm=sym]{unicode-math}
-\usepackage{mathtools}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{color}
-\usepackage[dvipsnames, svgnames, x11names]{xcolor}
-\usepackage[hidelinks]{hyperref}
-\usepackage{verbatim}
-\usepackage{enumitem}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage[dvipsnames, svgnames, x11names]{xcolor}
+\RequirePackage[fontset=none]{ctex}
+\RequirePackage[per-mode = symbol]{siunitx}
+\RequirePackage[ISO]{diffcoeff}
+\RequirePackage{tikz}
+\RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}, math-style=ISO, mathrm=sym]{unicode-math}
+\RequirePackage{mathtools}
+\RequirePackage{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
+\RequirePackage{color}
+\RequirePackage[dvipsnames, svgnames, x11names]{xcolor}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{verbatim}
+\RequirePackage{enumitem}
+
+\setCJKmainfont[BoldFont={FZHei-B01},ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKsansfont[BoldFont={FZHei-B01}]{FZKai-Z03}
+\setCJKmonofont[BoldFont={FZHei-B01}]{FZFangSong-Z02}
+\setCJKfamilyfont{zhsong}{FZShuSong-Z01}
+\setCJKfamilyfont{zhhei}{FZHei-B01}
+\setCJKfamilyfont{zhkai}[BoldFont={FZHei-B01}]{FZKai-Z03}
+\setCJKfamilyfont{zhfs}[BoldFont={FZHei-B01}]{FZFangSong-Z02}
+\newcommand*{\songti}{\CJKfamily{zhsong}}
+\newcommand*{\heiti}{\CJKfamily{zhhei}}
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}
+\newcommand*{\fangsong}{\CJKfamily{zhfs}}
 
 \geometry{a4paper, left = 3.17cm, right = 3.17cm, top = 2.54cm, bottom = 2.54cm}
-\setmainfont{STIX Two Text}
-\setsansfont{Source Sans Pro}
+\setmainfont{texgyretermes}[
+    UprightFont = *-regular ,
+    BoldFont = *-bold ,
+    ItalicFont = *-italic ,
+    BoldItalicFont = *-bolditalic ,
+    Extension = .otf ,
+    Scale = 1.0]
+  \setsansfont{texgyreheros}[
+    UprightFont = *-regular ,
+    BoldFont = *-bold ,
+    ItalicFont = *-italic ,
+    BoldItalicFont = *-bolditalic ,
+    Extension = .otf ,
+    Scale = 0.9]
 \setmathfont{STIXTwoMath-Regular.otf}
 
 \fancyhead[R]{新世代计算机科学计划}
@@ -55,6 +79,3 @@
 \CJKraisebaseline
 
 \linespread{1.2}
-
-\renewcommand\rmdefault{\sfdefault}
-\renewcommand\CJKrmdefault{\CJKsfdefault}
