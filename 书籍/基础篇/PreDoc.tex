@@ -1,0 +1,89 @@
+\usepackage{unicode-math}
+\setmathfont{STIXTwoMath-Regular.otf}
+
+\setmainfont{STIXTwoText}[
+    UprightFont = *-Regular ,
+    BoldFont = *-Bold ,
+    ItalicFont = *-Italic ,
+    BoldItalicFont = *-BoldItalic ,
+    Extension = .otf ,
+    Scale = 1.0]
+
+\usepackage{minted}
+\usepackage[color=black]{siunitx}
+\usepackage[ISO]{diffcoeff}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{tkz-graph}
+\usepackage{dashrule}
+\usepackage{float}
+
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+
+\definecolor{shadow}{RGB}{210,241,241}
+
+\titleformat{\chapter}[display]{\vspace*{\fill}\bfseries}{
+  \hspace*{\fill}\zihao{1}\enspace\bfseries{\color{structurecolor} \IfAppendix{\appendixname\;\thechapter\;}{\xchaptertitle}}}{0pt}{
+  \hspace*{\fill}\zihao{-0}\bfseries\color{black}}[\vspace{-1em}\color{structurecolor}\rule{\textwidth}{2pt}\vspace*{\fill}\newpage]
+\titleformat{\section}[hang]{\vspace*{0.5em}\bfseries}{
+  \filcenter\LARGE\bfseries{\color{structurecolor}\thesection}\enspace}{0pt}{%
+  \color{structurecolor}\LARGE\bfseries\filcenter}[\vspace{-1.3em}\hspace*{\fill}\color{structurecolor}\rule{0.2\textwidth}{1pt}\hspace*{\fill}\vspace*{1.3em}]
+\titleformat{\subsection}[hang]{\bfseries}{
+  \Large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
+  \color{structurecolor}\large\bfseries\filright}
+\titleformat{\subsubsection}[hang]{\bfseries}{
+  \large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
+  \color{structurecolor}\large\bfseries\filright}
+
+\tcbuselibrary{minted}
+\newcommand{\spare}{\vspace{-1em}\begin{center}\color{structurecolor}\hdashrule[0.5ex]{\textwidth}{1pt}{1pt}\end{center}\vspace{-1em}}
+\usetikzlibrary{shapes,backgrounds}
+\ExecuteBibliographyOptions{sorting=gb7714-2015}
+\setlength{\parskip}{1ex}
+\newtcolorbox{collections}{
+      boxrule=0.5pt,
+      enhanced,
+      breakable,
+      top=8pt,
+      before skip=8pt,
+      colframe=structurecolor,
+      colback=structurecolor!5,
+      colbacktitle=structurecolor
+}
+\newtcblisting{code*}[1]{
+    listing engine=minted,
+    boxrule=0.1mm,
+    colback=third!5,
+    colframe=third,
+    listing only,
+    left=5mm,
+    enhanced,
+    breakable,
+    overlay={\begin{tcbclipinterior}\fill[third] (frame.south west)
+    rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}},
+    minted language=#1,
+    minted style=vs,
+    minted options={breaklines, mathescape, autogobble, linenos, numbersep=2mm}
+}
+\newtcblisting[auto counter]{code}[2]{
+    listing engine=minted,
+    boxrule=0.1mm,
+    colback=third!5,
+    colframe=third,
+    listing only,
+    left=5mm,
+    enhanced,
+    breakable,
+    title=Program \Alph{\tcbcounter}: #2,
+    overlay={\begin{tcbclipinterior}\fill[third] (frame.south west)
+    rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}},
+    minted language=#1,
+    minted style=vs,
+    minted options={breaklines, mathescape, autogobble, linenos, numbersep=2mm}
+}
+\renewcommand{\theFancyVerbLine}{\textcolor{white}{\footnotesize{\arabic{FancyVerbLine}}}}
+
+\renewcommand{\bar}[1]{\overline{#1}}
+\arrayrulecolor{second}
+
+\usetikzlibrary{graphs}
