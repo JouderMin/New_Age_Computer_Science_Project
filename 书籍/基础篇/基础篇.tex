@@ -1,86 +1,6 @@
 \documentclass[lang=cn, thmcnt=section, chinesefont=founder, color=cyan, citestyle=gb7714-2015, bibstyle=gb7714-2015]{elegantbook}
 
-\usepackage{unicode-math}
-\setmathfont{STIXTwoMath-Regular.otf}
-
-\usepackage{minted}
-\usepackage[color=black]{siunitx}
-\usepackage[ISO]{diffcoeff}
-\usepackage{tikz}
-\usepackage{tkz-euclide}
-\usepackage{tkz-graph}
-\usepackage{dashrule}
-\usepackage{float}
-
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
-
-\definecolor{shadow}{RGB}{210,241,241}
-
-\titleformat{\chapter}[display]{\vspace*{\fill}\bfseries}{
-  \hspace*{\fill}\zihao{1}\enspace\bfseries{\color{structurecolor} \IfAppendix{\appendixname\;\thechapter\;}{\xchaptertitle}}}{0pt}{
-  \hspace*{\fill}\zihao{-0}\bfseries\color{black}}[\vspace{-1em}\color{structurecolor}\rule{\textwidth}{2pt}\vspace*{\fill}\newpage]
-\titleformat{\section}[hang]{\bfseries}{
-  \filcenter\LARGE\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{%
-  \color{structurecolor}\LARGE\bfseries\filcenter}
-\titleformat{\subsection}[hang]{\bfseries}{
-  \Large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
-  \color{structurecolor}\large\bfseries\filright}
-\titleformat{\subsubsection}[hang]{\bfseries}{
-  \large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
-  \color{structurecolor}\large\bfseries\filright}
-
-\tcbuselibrary{minted}
-\newcommand{\spare}{\vspace{-1em}\begin{center}\color{structurecolor}\hdashrule[0.5ex]{\textwidth}{1pt}{1pt}\end{center}\vspace{-1em}}
-\usetikzlibrary{shapes,backgrounds}
-\ExecuteBibliographyOptions{sorting=gb7714-2015}
-\setlength{\parskip}{1ex}
-\newtcolorbox{collections}{
-      boxrule=0.5pt,
-      enhanced,
-      breakable,
-      top=8pt,
-      before skip=8pt,
-      colframe=structurecolor,
-      colback=structurecolor!5,
-      colbacktitle=structurecolor
-}
-\newtcblisting{code*}[1]{
-    listing engine=minted,
-    boxrule=0.1mm,
-    colback=third!5,
-    colframe=third,
-    listing only,
-    left=5mm,
-    enhanced,
-    breakable,
-    overlay={\begin{tcbclipinterior}\fill[third] (frame.south west)
-    rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}},
-    minted language=#1,
-    minted style=vs,
-    minted options={breaklines, mathescape, autogobble, linenos, numbersep=2mm}
-}
-\newtcblisting[auto counter]{code}[2]{
-    listing engine=minted,
-    boxrule=0.1mm,
-    colback=third!5,
-    colframe=third,
-    listing only,
-    left=5mm,
-    enhanced,
-    breakable,
-    title=Program \Alph{\tcbcounter}: #2,
-    overlay={\begin{tcbclipinterior}\fill[third] (frame.south west)
-    rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}},
-    minted language=#1,
-    minted style=vs,
-    minted options={breaklines, mathescape, autogobble, linenos, numbersep=2mm}
-}
-\renewcommand{\theFancyVerbLine}{\textcolor{white}{\footnotesize{\arabic{FancyVerbLine}}}}
-
-\renewcommand{\bar}[1]{\overline{#1}}
-\arrayrulecolor{second}
-
-\usetikzlibrary{graphs}
+\input{PreDoc.tex}
 
 \title{新世代计算机科学计划·基础篇}
 \author{JouderMin}
@@ -116,11 +36,73 @@
     设 $n$ 是正整数且 $G=(V,E)$ 是无向图，$u,v \in V$。在 $G$ 中从 $u$ 到 $v$ 的长度为 $n$ 的通路指 $G$ 中边的序列 $(e_1,e_2,\cdots,e_n)$，其中边 $e_1$ 与顶点 $u$ 相关联，边 $e_n$ 与顶点 $v$ 相关联，根据这个边的序列，可以列出与每条边相关联的顶点序列 $(u,\cdots,v)$，当 $G$ 是简单无向图时，可以使用该顶点顶点序列来表示这条通路。如果一条通路在相同的顶点上开始和结束且该通路长度大于 $0$，则称这条通路是一条回路。若通路或回路中不包含相同的边，则称他是简单的。
 \end{definition}
 
+\begin{collections}
+    \begin{example}
+        请指出下图中任意一条回路和从顶点 $a$ 到 $e$ 的任意一条通路。
+        \begin{center}
+            \begin{tikzpicture}
+                \GraphInit[vstyle=normal]
+                \SetGraphUnit{1.5}\SetVertexMath
+                \Vertex{a}
+                \EA(a){b}
+                \SO(a){c}
+                \EA(c){d}
+                \EA(d){e}
+                \Edge[style={-}](a)(b)
+                \Edge[style={-}](a)(c)
+                \Edge[style={-}](a)(d)
+                \Edge[style={-}](b)(d)
+                \Edge[style={-}](b)(e)
+                \Edge[style={-}](c)(d)
+                \Edge[style={-}](d)(e)
+            \end{tikzpicture}
+        \end{center}
+    \end{example}
+    \begin{solution}
+        上图中存在回路 $(a, b, d, a)$ 及从顶点 $a$ 到 $e$ 的通路 $(a, d, e)$。
+        \begin{center}
+            \begin{tikzpicture}
+                \SetGraphUnit{1.5}\SetVertexMath
+                \Vertex{a}
+                \EA(a){b}
+                \SO(a){c}
+                \EA(c){d}
+                \EA(d){e}
+                \Edge[style={-}, color=third](a)(b)
+                \Edge[style={-}](a)(c)
+                \Edge[style={-}, color=third](a)(d)
+                \Edge[style={-}, color=third](b)(d)
+                \Edge[style={-}](b)(e)
+                \Edge[style={-}](c)(d)
+                \Edge[style={-}](d)(e)
+            \end{tikzpicture}
+            \hspace{3em}
+            \begin{tikzpicture}
+                \SetGraphUnit{1.5}\SetVertexMath
+                \Vertex{a}
+                \EA(a){b}
+                \SO(a){c}
+                \EA(c){d}
+                \EA(d){e}
+                \Edge[style={-}](a)(b)
+                \Edge[style={-}](a)(c)
+                \Edge[style={-}, color=third](a)(d)
+                \Edge[style={-}](b)(d)
+                \Edge[style={-}](b)(e)
+                \Edge[style={-}](c)(d)
+                \Edge[style={-}, color=third](d)(e)
+            \end{tikzpicture}
+        \end{center}
+    \end{solution}
+\end{collections}
+
 由定义 \ref{def:无向图的通路与回路} 我们可以类比作出有向图中通路与回路的定义。
 
 \begin{definition}[有向图的通路与回路]\label{def:有向图的通路与回路}
     设 $n$ 是正整数且 $G=(V,E)$ 是有向图，$x_1,x_2,x_{n-1},x_n \in V$。在 $G$ 中从 $x_1$ 到 $x_n$ 的长度为 $n$ 的通路指 $G$ 中边的序列 $(e_1,e_2,\cdots,e_n)$，其中边 $e_1 = (x_1,x_2)$，边 $e_n = (x_{n-1},x_n)$，根据这个边的序列，可以列出与每条边相关联的顶点序列 $(x_1,x_2,\cdots,x_n)$，当 $G$ 是简单有向图时，可以使用该顶点顶点序列来表示这条通路。如果一条通路在相同的顶点上开始和结束且该通路长度大于 $0$，则称这条通路是一条回路。若通路或回路中不包含相同的边，则称他是简单的。
 \end{definition}
+
+
 
 \subsection{无向图的连通性}
 \begin{definition}[无向图的连通性]\label{def:无向图的连通性}
