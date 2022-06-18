@@ -1,6 +1,10 @@
 \usepackage{unicode-math}
 \setmathfont{STIXTwoMath-Regular.otf}
 
+% \newcommand{\symbf}[1]{\mathbf{#1}}
+% \newcommand{\symrm}[1]{\mathrm{#1}}
+% \newcommand{\symcal}[1]{\mathcal{#1}}
+
 \setmainfont{STIXTwoText}[
     UprightFont = *-Regular ,
     BoldFont = *-Bold ,
@@ -17,23 +21,26 @@
 \usepackage{tkz-graph}
 \usepackage{dashrule}
 \usepackage{float}
+\usepackage{fontawesome}
 
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 
 \definecolor{shadow}{RGB}{210,241,241}
+\definecolor{information}{RGB}{220,234,247}
+\definecolor{infotitle}{RGB}{34,64,113}
 
-\titleformat{\chapter}[display]{\vspace*{\fill}\bfseries}{
-  \hspace*{\fill}\zihao{1}\enspace\bfseries{\color{structurecolor} \IfAppendix{\appendixname\;\thechapter\;}{\xchaptertitle}}}{0pt}{
+\titleformat{\part}[display]{\vspace*{\fill}\bfseries}{
+  \hspace*{\fill}\zihao{1}\enspace\bfseries{\color{structurecolor} \thepart}}{0pt}{
   \hspace*{\fill}\zihao{-0}\bfseries\color{black}}[\vspace{-1em}\color{structurecolor}\rule{\textwidth}{2pt}\vspace*{\fill}\newpage]
-\titleformat{\section}[hang]{\vspace*{0.5em}\bfseries}{
-  \filcenter\LARGE\bfseries{\color{structurecolor}\thesection}\enspace}{0pt}{%
-  \color{structurecolor}\LARGE\bfseries\filcenter}[\vspace{-1.3em}\hspace*{\fill}\color{structurecolor}\rule{0.2\textwidth}{1pt}\hspace*{\fill}\vspace*{1.3em}]
-\titleformat{\subsection}[hang]{\bfseries}{
-  \Large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
-  \color{structurecolor}\large\bfseries\filright}
-\titleformat{\subsubsection}[hang]{\bfseries}{
-  \large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
-  \color{structurecolor}\large\bfseries\filright}
+% \titleformat{\section}[hang]{\vspace*{0.5em}\bfseries}{
+%   \filcenter\LARGE\bfseries{\color{structurecolor}\thesection}\enspace}{0pt}{%
+%   \color{structurecolor}\LARGE\bfseries\filcenter}[\vspace{-1.3em}\hspace*{\fill}\color{structurecolor}\rule{0.2\textwidth}{1pt}\hspace*{\fill}\vspace*{1.3em}]
+% \titleformat{\subsection}[hang]{\bfseries}{
+%   \Large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
+%   \color{structurecolor}\large\bfseries\filright}
+% \titleformat{\subsubsection}[hang]{\bfseries}{
+%   \large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
+%   \color{structurecolor}\large\bfseries\filright}
 
 \tcbuselibrary{minted}
 \newcommand{\spare}{\vspace{-1em}\begin{center}\color{structurecolor}\hdashrule[0.5ex]{\textwidth}{1pt}{1pt}\end{center}\vspace{-1em}}
@@ -49,6 +56,17 @@
       colframe=structurecolor,
       colback=structurecolor!5,
       colbacktitle=structurecolor
+}
+\newtcolorbox{info}[1]{
+      boxrule=0.5pt,
+      enhanced,
+      breakable,
+      top=8pt,
+      before skip=8pt,
+      title = \vspace*{7pt}\color{infotitle}\faInfoCircle\enspace\textbf{#1},
+      colframe=information,
+      colback=information,
+      colbacktitle=information
 }
 \newtcblisting{code*}[1]{
     listing engine=minted,
