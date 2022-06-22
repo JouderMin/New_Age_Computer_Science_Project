@@ -1,0 +1,78 @@
+\section{命题}
+\begin{introduction}
+    \item 命题
+    \item 逻辑运算符
+    \item 复合命题
+    \item 逻辑运算符的优先级
+\end{introduction}
+
+\subsection{命题}
+命题是命题逻辑中的基本构件，我们在下面给出命题的定义。
+\begin{definition}[命题的定义]\label{def:命题的定义}
+    命题是一个陈述语句，他可能是真也可能是假，但不可能同时真并且假。语句的真假被称为该语句的真值。如果这个命题的真值为真（记作 T），那么该语句称为真命题，反之，如果这个命题的真值为假（记作 F），那么该语句称为假命题。
+\end{definition}
+
+\begin{collections}
+    \begin{example}
+        下面的语句中哪些是命题，哪些不是命题，如果该语句是命题，请判断它是真命题还是假命题。
+        \begin{enumerate}
+            \item 上海在东八区。
+            \item 北京是中国的首都。
+            \item 纽约是中国的城市。
+            \item $1 + 1 = 2$。
+            \item $x + 1 = 2$。
+            \item 我是谁？
+            \item 请帮我把水杯拿过来。
+        \end{enumerate}
+    \end{example}
+    \begin{solution}
+        语句 1、2、3、4 是命题，因为他们是陈述句且能确定其真值；语句 5 不是命题，因为尽管它是陈述句，但无法确定其真值；语句 6、7 不是命题，因为它们不是陈述句。在语句 1、2、3、4 中，语句 1、2、4 是真命题，语句 3 是假命题。
+    \end{solution}
+\end{collections}
+
+命题可以使用字母来表示，这样的字母被称为命题变量，习惯上常用字母 $p, q, r, s, \cdots$ 以及大写拉丁字母。
+
+\section{逻辑运算符}
+如果我们想从已有的命题产生新的命题，我们就需要逻辑运算符，我们将介绍 3 种基本逻辑运算符以及 3 种常用的逻辑运算符。
+
+\subsection{否定}
+\begin{definition}[命题的否定]\label{def:命题的否定}
+    令 $p$ 为命题，命题 $p$ 的否定形式记作 $\lnot p$，读作“非 $p$”，其真值与命题 $p$ 相反。
+\end{definition}
+
+在命题逻辑中，我们可以使用真值表来列举命题的所有可能及其真值，$p$ 与 $\lnot p$ 的真值如表 \ref{tab:否定的真值表} 所示。
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        \toprule
+        \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$\lnot p$} \\
+        \midrule
+        T & F \\
+        F & T \\
+        \bottomrule
+    \end{tabular}
+    \caption{$p$ 与 $\lnot p$ 的真值表}
+    \label{tab:否定的真值表}
+\end{table}
+
+\subsection{合取}
+\begin{definition}
+    令 $p$ 与 $q$ 为命题，$p$ 与 $q$ 的合取记作 $p \land q$，读作“$p$ 并且 $q$”。当且仅当 $p$ 与 $q$ 均为真时，$p \land q$ 为真，否则为假。
+\end{definition}
+$p, q$ 与 $p \land q$ 的真值表如表 \ref{tab:合取的真值表} 所示。
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc|c}
+        \toprule
+        \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$q$} & \makebox[1cm][c]{$p \land q$} \\
+        \midrule
+        T & T & T \\
+        T & F & F \\
+        F & T & F \\
+        F & F & F \\
+        \bottomrule
+    \end{tabular}
+    \caption{$p, q$ 与 $p \land q$ 的真值表}
+    \label{tab:合取的真值表}
+\end{table}
