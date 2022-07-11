@@ -13,6 +13,60 @@
     Extension = .otf ,
     Scale = 1.0]
 
+\setCJKmainfont{SourceHanSerifSC}[
+   Path = ./fonts/ ,
+   UprightFont = *-Regular.otf ,
+   BoldFont = *-Bold.otf ,
+   ItalicFont = LXGWWenKai-Regular.ttf ,
+   BoldItalicFont = LXGWWenKai-Bold.ttf ,
+   Scale = 1.0]
+
+\setCJKsansfont{SourceHanSansSC}[
+   Path = ./fonts/ ,
+   UprightFont = *-Regular.otf ,
+   BoldFont = *-Bold.otf ,
+   ItalicFont = LXGWWenKai-Regular.ttf ,
+   BoldItalicFont = LXGWWenKai-Bold.ttf ,
+   Scale = 1.0]
+
+\setCJKmonofont{LXGWWenKaiMono}[
+   Path = ./fonts/ ,
+   UprightFont = *-Regular ,
+   BoldFont = *-Bold ,
+   Extension = .ttf ,
+   Scale = 1.0]
+
+\setCJKfamilyfont{zhsong}{SourceHanSerifSC}[
+    Path = ./fonts/ ,
+    UprightFont = *-Regular.otf ,
+    BoldFont = *-Bold.otf ,
+    ItalicFont = LXGWWenKai-Regular.ttf ,
+    BoldItalicFont = LXGWWenKai-Bold.ttf ,
+    Scale = 1.0]
+\setCJKfamilyfont{zhhei}{SourceHanSansSC}[
+    Path = ./fonts/ ,
+    UprightFont = *-Regular.otf ,
+    BoldFont = *-Bold.otf ,
+    ItalicFont = LXGWWenKai-Regular.ttf ,
+    BoldItalicFont = LXGWWenKai-Bold.ttf ,
+    Scale = 1.0]
+\setCJKfamilyfont{zhkai}{LXGWWenKai}[
+    Path = ./fonts/ ,
+    UprightFont = *-Regular ,
+    BoldFont = *-Bold ,
+    Extension = .ttf ,
+    Scale = 1.0]
+\setCJKfamilyfont{zhfs}{LXGWWenKaiMono}[
+    Path = ./fonts/ ,
+    UprightFont = *-Regular ,
+    BoldFont = *-Bold ,
+    Extension = .ttf ,
+    Scale = 1.0]
+\renewcommand*{\songti}{\CJKfamily{zhsong}}
+\renewcommand*{\heiti}{\CJKfamily{zhhei}}
+\renewcommand*{\kaishu}{\CJKfamily{zhkai}}
+\renewcommand*{\fangsong}{\CJKfamily{zhfs}}
+
 \usepackage{minted}
 \usepackage[color=black]{siunitx}
 \usepackage[ISO]{diffcoeff}
@@ -22,6 +76,14 @@
 \usepackage{dashrule}
 \usepackage{float}
 \usepackage{fontawesome}
+\usepackage{multirow}
+\usepackage{longtable}
+
+\ctexset{
+    punct=kaiming
+}
+
+\newcommand{\qed}{\hfill$\QED$}
 
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 

@@ -1,0 +1,328 @@
+\section{命题逻辑}
+\begin{introduction}
+    \item 命题
+    \item 逻辑运算符
+    \item 原子命题与复合命题
+    \item 逻辑等价
+\end{introduction}
+
+\subsection{命题}
+命题是命题逻辑中的基本构件，我们在下面给出命题的定义。
+\begin{definition}[命题的定义]\label{def:命题的定义}
+    命题是一个陈述语句，他可能是真也可能是假，但不可能同时真并且假。语句的真假被称为该语句的真值。如果这个命题的真值为真（记作 T），那么该语句称为真命题，反之，如果这个命题的真值为假（记作 F），那么该语句称为假命题。
+\end{definition}
+
+\begin{collections}
+    \begin{example}
+        下面的语句中哪些是命题，哪些不是命题，如果该语句是命题，请判断它是真命题还是假命题。
+        \begin{enumerate}
+            \item 上海在东八区。
+            \item 北京是中国的首都。
+            \item 纽约是中国的城市。
+            \item $1 + 1 = 2$。
+            \item $x + 1 = 2$。
+            \item 我是谁？
+            \item 请帮我把水杯拿过来。
+        \end{enumerate}
+    \end{example}
+    \begin{solution}
+        语句 1、2、3、4 是命题，因为他们是陈述句且能确定其真值；语句 5 不是命题，因为尽管它是陈述句，但无法确定其真值；语句 6、7 不是命题，因为它们不是陈述句。在语句 1、2、3、4 中，语句 1、2、4 是真命题，语句 3 是假命题。
+    \end{solution}
+\end{collections}
+
+命题可以使用字母来表示，这样的字母被称为命题变量，习惯上常用字母 $p, q, r, s, \cdots$ 以及大写拉丁字母。
+
+\subsection{逻辑运算符}
+如果我们想从已有的命题产生新的命题，我们就需要逻辑运算符，我们将介绍 3 种逻辑运算符以及 2 种条件运算符。
+
+\subsubsection{否定}
+\begin{definition}[命题的否定]\label{def:命题的否定}
+    令 $p$ 为命题，命题 $p$ 的否定形式记作 $\lnot p$，读作“非 $p$”，其真值与命题 $p$ 相反。
+\end{definition}
+
+在命题逻辑中，我们可以使用真值表来列举命题的所有可能及其真值，$p$ 与 $\lnot p$ 的真值如表 \ref{tab:否定的真值表} 所示。
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        \toprule
+        \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$\lnot p$} \\
+        \midrule
+        T & F \\
+        F & T \\
+        \bottomrule
+    \end{tabular}
+    \caption{$p$ 与 $\lnot p$ 的真值表}
+    \label{tab:否定的真值表}
+\end{table}
+
+\subsubsection{合取}
+\begin{definition}[命题的合取]\label{def:命题的合取}
+    令 $p$ 与 $q$ 为命题，$p$ 与 $q$ 的合取记作 $p \land q$，读作“$p$ 并且 $q$”。当且仅当 $p$ 与 $q$ 均为真时，$p \land q$ 为真，否则为假。
+\end{definition}
+
+$p, q$ 与 $p \land q$ 的真值表如表 \ref{tab:合取的真值表} 所示。
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc|c}
+        \toprule
+        \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$q$} & \makebox[1cm][c]{$p \land q$} \\
+        \midrule
+        T & T & T \\
+        T & F & F \\
+        F & T & F \\
+        F & F & F \\
+        \bottomrule
+    \end{tabular}
+    \caption{$p, q$ 与 $p \land q$ 的真值表}
+    \label{tab:合取的真值表}
+\end{table}
+
+我们可以用符号
+\begin{equation*}
+    \bigwedge_{i=1}^{n} p_i = p_1 \land p_2 \land \cdots \land p_n
+\end{equation*}
+来表示一组命题 $p_1,p_2,\cdots,p_n$ 的合取。
+
+\subsubsection{析取}
+\begin{definition}[命题的析取]\label{def:命题的析取}
+    令 $p$ 与 $q$ 为命题，$p$ 与 $q$ 的析取记作 $p \lor q$，读作“$p$ 或 $q$”。当且仅当 $p$ 与 $q$ 均为假时，$p \lor q$ 为假，否则为真。
+\end{definition}
+
+$p, q$ 与 $p \lor q$ 的真值表如表 \ref{tab:析取的真值表} 所示。
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc|c}
+        \toprule
+        \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$q$} & \makebox[1cm][c]{$p \lor q$} \\
+        \midrule
+        T & T & T \\
+        T & F & T \\
+        F & T & T \\
+        F & F & F \\
+        \bottomrule
+    \end{tabular}
+    \caption{$p, q$ 与 $p \lor q$ 的真值表}
+    \label{tab:析取的真值表}
+\end{table}
+
+与合取类似，我们可以用符号
+\begin{equation*}
+    \bigvee_{i=1}^{n} p_i = p_1 \lor p_2 \lor \cdots \lor p_n
+\end{equation*}
+来表示一组命题 $p_1,p_2,\cdots,p_n$ 的析取。
+
+\subsubsection{蕴含}
+\begin{definition}[命题的蕴含]\label{def:命题的蕴含}
+    令 $p$ 与 $q$ 为命题，$p$ 蕴含 $q$ 记为 $p \to q$，读作“如果 $p$，则 $q$”，当且仅当 $p$ 为真但 $q$ 为假时，$p \to q$ 为假，否则为真。在 $p \to q$ 中，$p$ 称为假设，$q$ 称为结论，因此该命题也被称为条件命题。
+\end{definition}
+
+$p, q$ 与 $p \to q$ 的真值表如表 \ref{tab:蕴含的真值表} 所示。
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc|c}
+        \toprule
+        \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$q$} & \makebox[1cm][c]{$p \to q$} \\
+        \midrule
+        T & T & T \\
+        T & F & F \\
+        F & T & T \\
+        F & F & T \\
+        \bottomrule
+    \end{tabular}
+    \caption{$p, q$ 与 $p \to q$ 的真值表}
+    \label{tab:蕴含的真值表}
+\end{table}
+
+\subsubsection{等价}
+\begin{definition}[命题的等价]\label{def:命题的等价}
+    令 $p$ 与 $q$ 为命题，$p$ 等价 $q$ 记为 $p \leftrightarrow q$，读作“$p$ 当且仅当 $q$”，当 $p$ 与 $q$ 拥有同样的真值时，$p \leftrightarrow q$ 为真，否则为假。
+\end{definition}
+
+$p, q$ 与 $p \leftrightarrow q$ 的真值表如表 \ref{tab:等价的真值表} 所示。
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc|c}
+        \toprule
+        \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$q$} & \makebox[1cm][c]{$p \leftrightarrow q$} \\
+        \midrule
+        T & T & T \\
+        T & F & F \\
+        F & T & F \\
+        F & F & T \\
+        \bottomrule
+    \end{tabular}
+    \caption{$p, q$ 与 $p \leftrightarrow q$ 的真值表}
+    \label{tab:等价的真值表}
+\end{table}
+
+\subsection{原子命题与复合命题}
+在逻辑证明中，不能用简单的命题表示的命题叫做\emph{原子命题}，而由已知命题通过逻辑运算符组合而成的命题（如 $p \lor q$）叫做\emph{复合命题}。
+
+在命题演算中，我们需要遵守逻辑运算符的优先级，每个符号的优先级如图 \ref{fig:逻辑运算符的优先级} 表示。
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{c|c}
+        \toprule
+        \makebox[1cm][c]{运算符}& \makebox[1cm][c]{优先级} \\
+        \midrule
+        $\lnot$           & 1 \\
+        $\land$           & 2 \\
+        $\lor$            & 3 \\
+        $\to$             & 4 \\
+        $\leftrightarrow$ & 5 \\
+        \bottomrule
+    \end{tabular}
+    \caption{逻辑运算符的优先级}
+    \label{fig:逻辑运算符的优先级}
+\end{figure}
+
+下面我们将通过一个例题来研究如何构造一个复合命题的真值表。
+\begin{collections}
+    \begin{example}
+        试构造命题 $(\lnot p \land q) \to (p \lor \lnot q)$ 的真值表
+    \end{example}
+    \begin{solution}
+        \begin{center}
+            \begin{tabular}{cc|cc|c|c|c}
+                \toprule
+                \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$q$} & \makebox[1cm][c]{$\lnot p$} & \makebox[1cm][c]{$\lnot q$} & \makebox[1.5cm][c]{$\lnot p \land q$} & \makebox[1.5cm][c]{$p \lor \lnot q$} & \makebox[3.5cm][c]{$(\lnot p \land q) \to (p \lor \lnot q)$} \\
+                \midrule
+                T & T & F & F & F & T & T \\
+                T & F & F & T & F & T & T \\
+                F & T & T & F & T & F & F \\
+                F & F & T & T & F & T & T \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{solution}
+\end{collections}
+
+由此，我们可以对通过真值的角度来复合命题进行分类。
+\begin{definition}[重言式、矛盾式、可能式]\label{def:重言式、矛盾式、可能式}
+    一个真值永远是真的复合命题被称为重言式（也被称为永真式），一个真值永远是假的复合命题被称为矛盾式（也被称为永假式），既不是重言式也不是矛盾式的复合命题被称为可能式。
+\end{definition}
+
+证明一个复合命题是否为重言式（或矛盾式）最简单的方法就是使用真值表。
+\begin{collections}
+    \begin{example}
+        试证明复合命题 $p \lor \lnot p$ 是重言式。
+    \end{example}
+    \begin{solution}
+        构建复合命题 $p \lor \lnot p$ 的真值表
+        \begin{center}
+            \begin{tabular}{cc|c}
+                \toprule
+                \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$\lnot p$} & \makebox[2cm][c]{$p \lor \lnot p$} \\
+                \midrule
+                T & F & T \\
+                F & T & T \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+
+        由真值表可知，复合命题 $p \lor \lnot p$ 的真值总为真，因此复合命题 $p \lor \lnot p$ 是重言式。\qed
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        试证明复合命题 $p \land \lnot p$ 是矛盾式。
+    \end{example}
+    \begin{solution}
+        构建复合命题 $p \land \lnot p$ 的真值表
+        \begin{center}
+            \begin{tabular}{cc|c}
+                \toprule
+                \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$\lnot p$} & \makebox[2cm][c]{$p \land \lnot p$} \\
+                \midrule
+                T & F & F \\
+                F & T & F \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+
+        由真值表可知，复合命题 $p \land \lnot p$ 的真值总为假，因此复合命题 $p \land \lnot p$ 是矛盾式。\qed
+    \end{solution}
+\end{collections}
+
+\subsection{逻辑等价}
+在所有可能的情况下，如果两个命题拥有相同的真值，那么我们称这两个命题是逻辑等价的。
+\begin{definition}[逻辑等价]\label{def:逻辑等价}
+    令 $p$ 与 $q$ 为命题，如果 $p \leftrightarrow q$ 是重言式，那么 $p$ 和 $q$ 被称为是逻辑等价的，记作 $p \iff q$（或 $p \equiv q$）。
+\end{definition}
+
+等价关系满足以下三个性质：
+\begin{description}
+    \item[自反性] 对任意命题 $p$，有 $p \iff p$。
+    \item[对称性] 对任意命题 $p, q$，如果 $p \iff q$，则 $q \iff p$。
+    \item[可传递性] 对任意命题 $p, q, r$，如果 $p \iff q$，$q \iff r$，则 $p \iff r$。
+\end{description}
+
+证明两个命题逻辑等价的方法依然是通过真值表。
+
+\begin{collections}
+    \begin{example}
+        证明条件命题 $p \to q$ 与其逆否命题 $\lnot q \to \lnot p$ 逻辑等价。
+    \end{example}
+    \begin{solution}
+        构建 $p \to q$ 和 $\lnot q \to \lnot p$ 的真值表
+        \begin{center}
+            \begin{tabular}{cc|cc|cc}
+                \toprule
+                \makebox[1cm][c]{$p$} & \makebox[1cm][c]{$q$} & \makebox[1cm][c]{$\lnot p$} & \makebox[1cm][c]{$\lnot q$} & \makebox[1cm][c]{$p \to q$} & \makebox[1.5cm][c]{$\lnot q \to \lnot p$} \\
+                \midrule
+                T & T & F & F & T & T \\
+                T & F & F & T & F & F \\
+                F & T & T & F & T & T \\
+                F & F & T & T & T & T \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+
+        由真值表可知，$p \to q$ 与 $\lnot q \to \lnot p$ 有着相同的真值，即 $p \to q \iff \lnot q \to \lnot p$。\qed
+    \end{solution}
+\end{collections}
+
+下面我们将给出一些常见命题的等价形式，限于篇幅我们不可能将证明一一列出，有兴趣的同学可以自行证明。
+
+    \begin{equation*}
+        \begin{aligned}
+       \end{aligned}
+    \end{equation*}
+
+\begin{longtable}{c|c}
+    \toprule
+    等价式 & \makebox[3cm][c]{名称} \\
+    \midrule
+    \endhead
+    $p \land q \iff q \land p$ & \multirow{2}{*}{交换律} \\
+    $p \lor q \iff q \lor p$ & \\
+    \midrule
+    $(p \land q) \land r \iff p \land (q \land r)$ & \multirow{2}{*}{结合律} \\
+    $(p \lor q) \lor r \iff p \lor (q \lor r)$ & \\
+    \midrule
+    $p \land (q \lor r) \iff (p \land q) \lor (p \land r)$ & \multirow{2}{*}{分配律} \\
+    $p \lor (q \land r) \iff (p \lor q) \land (p \lor r)$ & \\
+    \midrule
+    $p \land p \iff p$ & \multirow{2}{*}{幂等律} \\
+    $p \lor p \iff p$ & \\
+    \midrule
+    $p \land \symbf{T} \iff p$ & \multirow{2}{*}{恒等律} \\
+    $p \lor \symbf{F} \iff p$ & \\
+    \midrule
+    $p \lor \symbf{T} \iff \symbf{T}$ & \multirow{2}{*}{支配律} \\
+    $p \land \symbf{F} \iff \symbf{F}$ & \\
+    \midrule
+    $p \lor \lnot p \iff \symbf{T}$ & \multirow{2}{*}{否定率} \\
+    $p \land \lnot p \iff \symbf{F}$ & \\
+    \midrule
+    $\lnot(\lnot p) \iff p$ & 双重否定律 \\
+    \midrule
+    $\lnot(p \land q) \iff \lnot p \lor \lnot q$ & \multirow{2}{*}{德·摩根律} \\
+    $\lnot(p \lor q) \iff \lnot p \land \lnot q$ & \\
+    \midrule
+    $p \to q \iff \lnot p \lor q$ & \multirow{2}{*}{条件运算的等价} \\
+    $p \leftrightarrow q \iff (p \to q) \land (q \to p)$ & \\
+    \bottomrule
+\end{longtable}

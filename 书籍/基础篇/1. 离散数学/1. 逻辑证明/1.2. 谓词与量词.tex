@@ -1,0 +1,62 @@
+\section{谓词与量词}
+\begin{introduction}
+    \item 谓词
+    \item 量词
+    \item 嵌套量词
+\end{introduction}
+
+\subsection{谓词}
+在命题演算之中，我们可以用形如 $R(x)$ 的形式来表示变量 $x$ 的性质，当然，其真值会根据 $x$ 的取值而变化。$R(x)$ 便叫做\emph{谓词}。
+\begin{collections}
+    \begin{example}
+        令 $R(x)$ 表示语句“$x > 0$”，求 $R(-1)$ 与 $R(2)$ 的真值。
+    \end{example}
+    \begin{solution}
+        当 $x = -1$ 时，$-1 \ngtr 0$，因此 $R(-1)$ 的真值为 F；当 $x = 2$ 时，$2 > 0$，因此 $R(2)$ 的真值为 T。
+    \end{solution}
+\end{collections}
+
+事实上，谓词不单单能表示一个变量的性质，它可以表示多个变量的性质，例如我们令 $Q(x,y)$ 表示语句“$y = x + 1$”，显然这个谓词同时表示了变量 $x$ 与 $y$ 的性质，我们称这样的谓词为\emph{二元谓词}。接下来我们将谓词推广到可以表示 $n$ 个变量的性质，那么涉及 $n$ 个变量的谓词我们一般表示为
+\begin{equation*}
+    P(x_1,x_2,\cdots,x_n)
+\end{equation*}
+我们称这样的谓词为 \emph{$n$ 元谓词}。
+
+\subsection{量词}
+在命题演算中最常见的量化一般有 2 种，全称量化与存在量化，他们表示一个谓词在考虑范围内的真值情况，这个考虑范围我们称为论域，如果没有指定论域，那么全称量化和存在量化均无意义。
+
+\begin{definition}[全称量化]\label{def:全称量化}
+    $P(x)$ 的全称量化为语句“论域内的所有 $x$ 满足 $P(x)$”，记作 $\forall x P(x)$，其中 $\forall$ 是全称量词。
+\end{definition}
+
+\begin{definition}[存在量化]\label{def:存在量化}
+    $P(x)$ 的存在量化为语句“论域内存在一个 $x$ 满足 $P(x)$”，记作 $\exists x P(x)$，其中 $\exists$ 是存在量词。
+\end{definition}
+
+\begin{collections}
+    \begin{example}
+        令 $P(x)$ 表示语句“$x + 1 > x$”，论域为全体实数集，求 $\forall x P(x)$ 的真值。
+    \end{example}
+    \begin{solution}
+        显然 $P(x)$ 对所有实数均为真，所以 $\forall x P(x)$ 的值为真。
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        令 $P(x)$ 表示语句 $x = 2$，论域为 $x < 10$，求 $\exists x P(x)$ 的真值。
+    \end{example}
+    \begin{solution}
+        在论域 $x < 10$ 中存在 $x = 2$ 使得 $P(x)$ 成立，所以 $\exists x P(x)$ 的值为真。
+    \end{solution}
+\end{collections}
+
+除了以上的两种量化，还存在一个较少使用的量化，唯一性量化。
+\begin{definition}
+    $P(x)$ 的唯一性量化为语句“论域内存在且只存在一个 $x$ 满足 $P(x)$”，记作 $\exists ! x P(x)$，其中 $\exists !$ 是唯一性量词。
+\end{definition}
+
+事实上唯一性量化的使用是可以被避免的。
+\begin{theorem}
+    $\exists ! x P(x) \iff \exists x P(x) \land \forall x \forall y(P(x) \land P(y) \to (x = y))$
+\end{theorem}

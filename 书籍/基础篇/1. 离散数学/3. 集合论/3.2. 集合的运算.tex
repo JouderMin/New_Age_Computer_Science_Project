@@ -1,0 +1,284 @@
+\section{集合的运算}
+\begin{introduction}
+    \item 交集
+    \item 并集
+    \item 差集
+    \item 补集
+    \item 对称差
+\end{introduction}
+
+\subsection{交集}
+\begin{definition}[集合的交集]\label{def:交集}
+    令 $A$ 与 $B$ 为集合。集合 $A$ 与 $B$ 的交集是一个集合，它包含集合 $A$ 与 $B$ 中共有的元素，记作 $A \cap B$。
+    \begin{equation*}
+        A \cap B = \{x \mid x \in A \land x \in B \}
+    \end{equation*}
+\end{definition}
+
+集合 $A$ 与 $B$ 的交集可以用图 \ref{fig:交集文氏图} 中的阴影部分表示。
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}[scale=0.75]
+        \begin{scope}
+            \clip (2,2) circle (1.5);
+            \fill[shadow] (4,2) circle (1.5);
+        \end{scope}
+
+        \draw[thick] (-0.5,0) rectangle (6.5,4);
+        \draw[thick] (2,2) circle (1.5);
+        \draw[thick] (4,2) circle (1.5);
+
+        \node[below left] at (6.5,4) {$U$};
+        \node at (1.75,2) {$B$};
+        \node at (4.25,2) {$A$};
+    \end{tikzpicture}
+    \caption{$A \cap B$ 的文氏图}
+    \label{fig:交集文氏图}
+\end{figure}
+
+由此我们还可以定义一组集合的交集。
+\begin{definition}[多个集合的交集]\label{def:多个交集}
+    一组集合的交集是包含这组集合中所有成员集合共有的元素的集合。
+\end{definition}
+
+我们用符号
+\begin{equation*}
+    \bigcap_{i=1}^n A_i=A_1 \cap A_2 \cap \cdots \cap A_i
+\end{equation*}
+表示 $A_1$，$A_2$，$\cdots$，$A_n$ 的交集。
+\begin{collections}
+    \begin{example}
+        已知 $A = \{ 1, 2, 3 \}$，$B = \{ 2, 3, 4\}$，求 $A \cap B$。
+    \end{example}
+    \begin{solution}
+        $A \cap B = \{2, 3\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{ x \mid 10 < x \leq 20 \}$，$B = \{ x \mid 0 < x \leq 10 \}$，求 $A \cap B$。
+    \end{example}
+    \begin{solution}
+        $A \cap B = \varnothing$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{ x \mid 10 \leq x \leq 20 \}$，$B = \{ x \mid 0 \leq x \leq 10 \}$，求 $A \cap B$。
+    \end{example}
+    \begin{solution}
+        $A \cap B = \{10\}$
+    \end{solution}
+\end{collections}
+
+\subsection{并集}
+\begin{definition}[集合的并集]\label{def:并集}
+    令 $A$ 与 $B$ 为集合。集合 $A$ 与 $B$ 的并集是一个集合，它包含 $A$ 和 $B$ 中的所有元素，记作 $A \cup B$。
+    \begin{equation*}
+        A \cup B = \{x \mid x \in A \lor x \in B\}
+    \end{equation*}
+\end{definition}
+
+集合 $A$ 与 $B$ 的并集可以用图 \ref{fig:并集文氏图} 中的阴影部分表示。
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}[scale=0.75]
+        \begin{scope}
+            \clip (2,2) circle (1.5);
+            \fill[shadow] (4,2) circle (1.5);
+        \end{scope}
+        \begin{scope}
+            \clip (2,2) circle (1.5) (-0.5,0) rectangle (6.5,4);
+            \fill[shadow] (4,2) circle (1.5);
+        \end{scope}
+        \begin{scope}
+            \clip (4,2) circle (1.5) (-0.5,0) rectangle (6.5,4);
+            \fill[shadow] (2,2) circle (1.5);
+        \end{scope}
+
+        \draw[thick] (-0.5,0) rectangle (6.5,4);
+        \draw[thick] (2,2) circle (1.5);
+        \draw[thick] (4,2) circle (1.5);
+
+        \node[below left] at (6.5,4) {$U$};
+        \node at (1.75,2) {$B$};
+        \node at (4.25,2) {$A$};
+    \end{tikzpicture}
+    \caption{$A \cup B$ 的文氏图}
+    \label{fig:并集文氏图}
+\end{figure}
+
+同交集一样，由此我们还可以定义一组集合的并集。
+\begin{definition}[多个集合的并集]\label{def:多个并集}
+    一组集合的交集是包含这组集合中所有成员集合的元素的集合。
+\end{definition}
+
+我们用符号
+\begin{equation*}
+    \bigcup_{i=1}^n A_i=A_1 \cup A_2 \cup \cdots \cup A_i
+\end{equation*}
+表示 $A_1$，$A_2$，$\cdots$，$A_n$ 的并集。
+\begin{collections}
+    \begin{example}
+        已知 $A = \{ 1, 2, 3 \}$，$B = \{ 2, 3, 4\}$，求 $A \cup B$。
+    \end{example}
+    \begin{solution}
+        $A \cap B = \{1, 2, 3, 4\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{ x \mid 10 < x \leq 20 \}$，$B = \{ x \mid 0 < x \leq 10 \}$，求 $A \cup B$。
+    \end{example}
+    \begin{solution}
+        $A \cup B = \{ x \mid 0 < x < 20\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{ x \mid 10 < x \leq 20 \}$，$B = \{ x \mid 0 < x \leq 10 \}$，求 $A \cup B$。
+    \end{example}
+    \begin{solution}
+        $A \cup B = \{ x \mid 0 < x < 20 \land x \neq 10 \}$
+    \end{solution}
+\end{collections}
+
+\subsection{差集}
+\begin{definition}[集合的差集]\label{def:差集}
+    令 $A$ 与 $B$ 为集合，集合 $A$ 和 $B$ 的差集是一个集合，它包含属于 $A$ 但不属于 $B$ 的元素，记作 $A-B$。
+    \begin{equation*}
+        A - B = \{ x \mid x \in A \land x \notin B \}
+    \end{equation*}
+\end{definition}
+
+集合 $A$ 与 $B$ 的差集可以用图 \ref{fig:差集文氏图} 中的阴影部分表示。
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}[scale=0.75]
+        \begin{scope}
+            \clip (2,2) circle (1.5) (-0.5,0) rectangle (6.5,4);
+            \fill[shadow] (4,2) circle (1.5);
+        \end{scope}
+
+        \draw[thick] (-0.5,0) rectangle (6.5,4);
+        \draw[thick] (2,2) circle (1.5);
+        \draw[thick] (4,2) circle (1.5);
+
+        \node[below left] at (6.5,4) {$U$};
+        \node at (1.75,2) {$B$};
+        \node at (4.25,2) {$A$};
+    \end{tikzpicture}
+    \caption{$A - B$ 的文氏图}
+    \label{fig:差集文氏图}
+\end{figure}
+
+\begin{collections}
+    \begin{example}
+        已知 $A = \{ 1, 2, 3 \}$，$B = \{2, 3, 4\}$，求 $A - B$。
+    \end{example}
+    \begin{solution}
+        $A-B = \{1\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A = \{1, 2, 3\}$，$B = \{4, 5, 6\}$，求 $A - B$。
+    \end{example}
+    \begin{solution}
+        $A - B = \{1, 2, 3\}$
+    \end{solution}
+\end{collections}
+
+\subsection{补集}
+\begin{definition}[集合的补集]
+    令 $U$ 为全集，集合 $A$ 的补集就是 $U-A$，记作 $\bar{A}$
+\end{definition}
+
+集合 $A$ 的补集可以用图 \ref{fig:补集文氏图} 中的阴影部分表示。
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}
+            \clip (0,0) rectangle (4,3) (2,1.5) circle (1);
+            \fill[shadow] (0,0) rectangle (4,3);
+        \end{scope}
+        \draw[thick] (0,0) rectangle (4,3);
+        \draw[thick] (2,1.5) circle (1);
+
+        \node[below left] at (4,3) {$U$};
+        \node at (2,1.5) {$A$};
+    \end{tikzpicture}
+    \caption{$\bar{A}$ 的文氏图}
+    \label{fig:补集文氏图}
+\end{figure}
+
+\begin{collections}
+    \begin{example}
+        已知 $A = \{x \in \symbf{R} \mid 10 < x \leq 20\}$，求$\bar{A}$。
+    \end{example}
+    \begin{solution}
+        $\bar{A} = \{x \in \symbf{R} \mid x \leq 10 \lor x > 20\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知全集 $U$，$A = \varnothing$，求 $\bar{A}$。
+    \end{example}
+    \begin{solution}
+        $\bar{A} = U$
+    \end{solution}
+\end{collections}
+
+\subsection{对称差}
+\begin{definition}[集合的对称差]\label{def:对称差}
+    令 $A$ 与 $B$ 为集合，集合 $A$ 与 $B$ 的对称差是一个集合，由属于 $A$ 但不属于 $B$ 和属于 $B$ 但不属于 $A$ 的元素组成，记作 $A \oplus B$。
+\end{definition}
+
+集合 $A$ 与 $B$ 的对称差可以用图 \ref{fig:对称差文氏图} 中的阴影部分表示。
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}[scale=0.75]
+        \begin{scope}
+            \clip (2,2) circle (1.5) (-0.5,0) rectangle (6.5,4);
+            \fill[shadow] (4,2) circle (1.5);
+        \end{scope}
+        \begin{scope}
+            \clip (4,2) circle (1.5) (-0.5,0) rectangle (6.5,4);
+            \fill[shadow] (2,2) circle (1.5);
+        \end{scope}
+
+        \draw[thick] (-0.5,0) rectangle (6.5,4);
+        \draw[thick] (2,2) circle (1.5);
+        \draw[thick] (4,2) circle (1.5);
+
+        \node[below left] at (6.5,4) {$U$};
+        \node at (1.75,2) {$B$};
+        \node at (4.25,2) {$A$};
+    \end{tikzpicture}
+    \caption{$A \oplus B$ 的文氏图}
+    \label{fig:对称差文氏图}
+\end{figure}
+
+\begin{collections}
+    \begin{example}
+        已知 $A=\{1, 2, 3\}$，$B = \{2, 3, 4\}$，求 $A \oplus B$。
+    \end{example}
+    \begin{solution}
+        $A \oplus B = \{1, 4\}$
+    \end{solution}
+
+    \spare
+
+    \begin{example}
+        已知 $A=\{1, 2, 3\}$，$B=\{1, 2, 3\}$，求 $A \oplus B$。
+    \end{example}
+    \begin{solution}
+        $A \oplus B = \varnothing$
+    \end{solution}
+\end{collections}
