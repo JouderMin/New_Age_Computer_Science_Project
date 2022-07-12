@@ -4,9 +4,9 @@ import os
 def build_project(dir_path: str, project_name: str) -> None:
     os.chdir(dir_path)
     os.system(
-        "xelatex --no-pdf -synctex=1 -interaction=nonstopmode -file-line-erro -shell-escape " + project_name + ".tex")
+        "xelatex --no-pdf -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape " + project_name + ".tex")
     os.system(
-        "xelatex --no-pdf -synctex=1 -interaction=nonstopmode -file-line-erro -shell-escape " + project_name + ".tex")
+        "xelatex --no-pdf -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape " + project_name + ".tex")
     os.system(
         "xdvipdfmx -E " + project_name + ".xdv")
     if os.name == "nt":
