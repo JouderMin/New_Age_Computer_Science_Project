@@ -1,0 +1,67 @@
+\section{布尔函数}
+\begin{introduction}
+    \item 布尔代数的运算规则
+    \item 布尔函数
+    \item 布尔恒等式
+    \item 布尔函数的对偶性
+\end{introduction}
+
+\subsection{布尔代数的运算规则}
+布尔代数有三个运算规则，分别是\emph{补}、\emph{布尔和}以及\emph{布尔积}。
+
+\begin{definition}[补]\label{def:补}
+    设 $x$ 是一个布尔变量，$x$ 的补记作 $\bar{x}$，补有以下运算规则
+    \begin{equation*}
+        \begin{gathered}
+            \bar{0} = 1 \\
+            \bar{1} = 0 \\
+        \end{gathered}
+    \end{equation*}
+\end{definition}
+\begin{definition}[布尔和]\label{def:布尔和}
+    设 $x, y$ 为布尔变量，$x$ 与 $y$ 的布尔和记作 $x + y$（或 $x \mathop{\symrm{OR}} y$），布尔和有以下运算规则
+    \begin{equation*}
+        \begin{gathered}
+            0 + 0 = 0 \\
+            0 + 1 = 1 \\
+            1 + 0 = 1 \\
+            1 + 1 = 1 \\
+        \end{gathered}
+    \end{equation*}
+\end{definition}
+\begin{definition}[布尔积]\label{def:布尔积}
+    设 $x, y$ 为布尔变量，$x$ 与 $y$ 的布尔积记作 $x \cdot y$（或 $x \mathop{\symrm{AND}} y$），布尔积有以下运算规则
+    \begin{equation*}
+        \begin{gathered}
+            0 \cdot 0 = 0 \\
+            0 \cdot 1 = 0 \\
+            1 \cdot 0 = 0 \\
+            1 \cdot 1 = 1 \\
+        \end{gathered}
+    \end{equation*}
+    在没有歧义时，可以删去 $\cdot$ 符号。
+\end{definition}
+
+在没有括号时，布尔运算的优先级是
+\begin{enumerate}
+    \item 补
+    \item 布尔积
+    \item 布尔和
+\end{enumerate}
+
+\begin{collections}
+    \begin{example}
+        计算布尔表达式 $1 \cdot 0 + \bar{1 + 1} + 1 \cdot (0 + \bar{1})$ 的值。
+    \end{example}
+
+    \begin{solution}
+        \begin{equation*}
+            \begin{aligned}
+                \text{原式} &= 0 + \bar{1} + 1 \cdot (0 + 0) \\
+                &= 0 + 0 + 1 \cdot 0 \\
+                &= 0 + 0 \\
+                &= 0 \\
+            \end{aligned}
+        \end{equation*}
+    \end{solution}
+\end{collections}
