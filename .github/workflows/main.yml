@@ -1,5 +1,5 @@
 name: Compile all LaTeX file
-on: pull_request
+on: [pull_request, workflow_dispatch]
 jobs:
   compile:
     runs-on: ubuntu-latest
