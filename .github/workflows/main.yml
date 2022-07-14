@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.2
       - uses: actions/setup-python@v4.1.0
-      - uses: teatimeguest/setup-texlive-action@v2.2.5
+      - uses: paolobrasolin/setup-texlive-action@v1
       - run: python book_builder.py
 #       - name: Upload a Build Artifact
 #         uses: actions/upload-artifact@v3.1.0
