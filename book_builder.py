@@ -16,4 +16,4 @@ def build_project(dir_path: str, project_name: str) -> None:
 
 
 if __name__ == "__main__":
-    build_project("书籍/基础篇/", "基础篇")
+    build_project("./书籍/基础篇/", "基础篇")
