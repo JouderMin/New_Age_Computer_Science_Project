@@ -3,6 +3,10 @@ on: [pull_request, workflow_dispatch]
 jobs:
   compile:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./
     steps:
       - uses: actions/setup-python@v4.1.0
       - uses: teatimeguest/setup-texlive-action@v2.2.5
