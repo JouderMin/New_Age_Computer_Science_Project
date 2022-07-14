@@ -6,13 +6,13 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./
+        working-directory: ../
     steps:
       - uses: actions/setup-python@v4.1.0
       - uses: teatimeguest/setup-texlive-action@v2.2.5
-      - run: echo $PWD
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          path: ./
+      - run: python book_builder.py
+#       - name: Upload a Build Artifact
+#         uses: actions/upload-artifact@v3.1.0
+#         with:
+#           path: ./
   
