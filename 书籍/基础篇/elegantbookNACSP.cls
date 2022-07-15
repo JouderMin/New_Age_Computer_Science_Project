@@ -215,7 +215,7 @@
         BoldFont = *-Bold.otf ,
         ItalicFont = LXGWWenKai-Regular.ttf ,
         BoldItalicFont = LXGWWenKai-Bold.ttf ,
-        Scale = 1.0]
+        Scale = 0.95]
 
     \setCJKsansfont{SourceHanSansSC}[
         Path = ./fonts/ ,
@@ -223,7 +223,7 @@
         BoldFont = *-Bold.otf ,
         ItalicFont = LXGWWenKai-Regular.ttf ,
         BoldItalicFont = LXGWWenKai-Bold.ttf ,
-        Scale = 1.0]
+        Scale = 0.95]
 
     \setCJKmonofont{LXGWWenKaiMono}[
         Path = ./fonts/ ,
@@ -238,14 +238,14 @@
         BoldFont = *-Bold.otf ,
         ItalicFont = LXGWWenKai-Regular.ttf ,
         BoldItalicFont = LXGWWenKai-Bold.ttf ,
-        Scale = 1.0]
+        Scale = 0.95]
     \setCJKfamilyfont{zhhei}{SourceHanSansSC}[
         Path = ./fonts/ ,
         UprightFont = *-Regular.otf ,
         BoldFont = *-Bold.otf ,
         ItalicFont = LXGWWenKai-Regular.ttf ,
         BoldItalicFont = LXGWWenKai-Bold.ttf ,
-        Scale = 1.0]
+        Scale = 0.95]
     \setCJKfamilyfont{zhkai}{LXGWWenKai}[
         Path = ./fonts/ ,
         UprightFont = *-Regular ,
@@ -427,6 +427,8 @@
 \RequirePackage{graphicx}
 %\RequirePackage{enumerate}
 \RequirePackage{amsmath,mathrsfs,amsfonts,amssymb}
+\RequirePackage{zhlineskip}
+\SetMathEnvironmentSinglespace{1.05}
 % \providecommand\qed{}
 % \renewcommand{\qed}{\hfill\ensuremath{\square}}
 \RequirePackage{booktabs}
