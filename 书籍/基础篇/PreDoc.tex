@@ -1,6 +1,3 @@
-\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-\setmathfont{STIXTwoMath-Regular.otf}
-
 % \newcommand{\symbf}[1]{\mathbf{#1}}
 % \newcommand{\symrm}[1]{\mathrm{#1}}
 % \newcommand{\symcal}[1]{\mathcal{#1}}
@@ -16,6 +13,9 @@
 \usepackage{fontawesome}
 \usepackage{multirow}
 \usepackage{longtable}
+
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+\setmathfont{STIXTwoMath-Regular.otf}
 
 \ctexset{
     punct=kaiming
@@ -63,7 +63,8 @@
       breakable,
       top=8pt,
       before skip=8pt,
-      title = \vspace*{7pt}\color{infotitle}\faInfoCircle\enspace\textbf{#1},
+      title = \vspace*{7pt}\color{infotitle}\faInfoCircle\enspace\sffamily\textbf{#1},
+      fontupper=\it,
       colframe=information,
       colback=information,
       colbacktitle=information

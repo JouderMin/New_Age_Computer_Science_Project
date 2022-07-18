@@ -115,7 +115,7 @@
   linktoc=all,
   bookmarksnumbered=true,
   bookmarksopen=true,
-  pdfkeywords={ElegantBook},
+  pdfkeywords={新世代计算机科学计划},
   colorlinks,
   linkcolor=winered,
   citecolor=winered,

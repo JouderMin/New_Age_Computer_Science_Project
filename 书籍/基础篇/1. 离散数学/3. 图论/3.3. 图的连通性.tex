@@ -139,7 +139,7 @@
 
 \subsection{无向图的连通性}
 \begin{definition}[无向图的连通性]\label{def:无向图的连通性}
-    若无向图中每一对不同的顶点之间都有通路，则称该图为连通的，否则称为不连通的。
+    如果无向图中每一对不同的顶点之间都有通路，则称该图为连通的，否则称为不连通的。
 \end{definition}
 
 从定义 \ref{def:无向图的连通性} 中可以推出定理 \ref{thm:无向图定理通路}。
@@ -170,6 +170,18 @@
         \end{center}
     \end{example}
     \begin{solution}
-        从上图可知顶点 $a$ 与 顶点 $e$ 之间不存在通路，违背了定义 \ref{def:无向图的连通性}，因此该图是不连通的。
+        从上图可知顶点 $a$ 与 顶点 $e$ 之间不存在通路，因此该图是不连通的。
     \end{solution}
 \end{collections}
+
+\subsection{有向图的连通性}
+有向图中有两种连通性概念。
+\begin{definition}[有向图的强连通性]\label{def:有向图的强连通性}
+    如果有向图中的任意顶点 $a$ 和 $b$之间都存在通路 $(a,b)$ 和 $(b,a)$，则该图是强连通的。
+\end{definition}
+\begin{definition}[有向图的弱连通性]\label{def:有向图的弱连通性}
+    如果有向图的基本无向图是连通的，则称该有向图是弱连通的。
+\end{definition}
+\begin{info}{基本无向图}
+    有向图的基本无向图指的是该有向图忽略所有边的方向后所生成的无向图。
+\end{info}
