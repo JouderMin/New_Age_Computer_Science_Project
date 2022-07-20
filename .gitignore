@@ -9,4 +9,5 @@ __pycache__/
 *.log
 *.toc
 *.listing
+*.ipynb
 _minted-*/
