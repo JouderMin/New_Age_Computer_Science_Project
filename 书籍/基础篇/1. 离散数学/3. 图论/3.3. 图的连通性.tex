@@ -1,6 +1,7 @@
 \section{图的连通性}
 \begin{introduction}
     \item 通路与回路
+    \item 顶点之间的通路数量
     \item 无向图的连通性
     \item 有向图的连通性
 \end{introduction}
@@ -137,9 +138,60 @@
     \end{solution}
 \end{collections}
 
+\subsection{顶点间的通路数量}
+我们可以通过图的邻接矩阵来确定顶点间的通路数量。
+\begin{theorem}
+    设 $G$ 是一个图，矩阵 $\symbf{A}$ 是图 $G$ 的邻接矩阵，$v_1, v_2, \cdots, v_n$ 是图 $G$ 的顶点。从 $v_i$ 到 $v_j$ 长度为 $r\,(r > 0)$ 的通路数量为 $\symbf{A}^r$ 的第 $(i, j)$ 项。
+\end{theorem}
+
+\begin{collections}
+    \begin{example}
+        图 $G$ 如下图所示，求从顶点 $a$ 到 $c$ 长度为 $3$ 的通路数量。
+
+        \begin{center}
+            \begin{tikzpicture}
+                \SetGraphUnit{1.5}\SetVertexMath
+                \Vertex{a}
+                \EA(a){b}
+                \SO(a){c}
+                \EA(c){d}
+                \Edge[style={-}](a)(b)
+                \Edge[style={-}](a)(d)
+                \Edge[style={-}](b)(c)
+                \Edge[style={-}](c)(d)
+            \end{tikzpicture}
+        \end{center}
+    \end{example}
+
+    \begin{solution}
+        建立图 $G$ 的邻接矩阵 $\symbf{A}$，可知
+        \begin{equation*}
+            \symbf{A}=
+            \begin{bmatrix}
+                0 & 1 & 0 & 1 \\
+                1 & 0 & 1 & 0 \\
+                0 & 1 & 0 & 1 \\
+                1 & 0 & 1 & 0 \\
+            \end{bmatrix}
+        \end{equation*}
+        计算，得
+        \begin{equation*}
+            \symbf{A}^3=
+            \begin{bmatrix}
+                0 & 4 & 0 & 4 \\
+                4 & 0 & 4 & 0 \\
+                0 & 4 & 0 & 4 \\
+                4 & 0 & 4 & 0 \\
+            \end{bmatrix}
+        \end{equation*}
+        可知 $a_{13} = 0$，所以从顶点 $a$ 到 $c$ 长度为 $3$ 的通路数量为 $0$。
+    \end{solution}
+\end{collections}
+
+
 \subsection{无向图的连通性}
 \begin{definition}[无向图的连通性]\label{def:无向图的连通性}
-    若无向图中每一对不同的顶点之间都有通路，则称该图为连通的，否则称为不连通的。
+    如果无向图中每一对不同的顶点之间都有通路，则称该图为连通的，否则称为不连通的。
 \end{definition}
 
 从定义 \ref{def:无向图的连通性} 中可以推出定理 \ref{thm:无向图定理通路}。
@@ -170,6 +222,49 @@
         \end{center}
     \end{example}
     \begin{solution}
-        从上图可知顶点 $a$ 与 顶点 $e$ 之间不存在通路，违背了定义 \ref{def:无向图的连通性}，因此该图是不连通的。
+        从上图可知顶点 $a$ 与 顶点 $e$ 之间不存在通路，因此该图是不连通的。
     \end{solution}
 \end{collections}
+
+\subsection{有向图的连通性}
+有向图中有两种连通性概念。
+\begin{definition}[有向图的强连通性]\label{def:有向图的强连通性}
+    如果有向图中的任意顶点 $a$ 和 $b$之间都存在通路 $(a,b)$ 和 $(b,a)$，则该图是强连通的。
+\end{definition}
+\begin{definition}[有向图的弱连通性]\label{def:有向图的弱连通性}
+    如果有向图的基本无向图是连通的，则称该有向图是弱连通的。
+\end{definition}
+\begin{info}{基本无向图}
+    有向图的基本无向图指的是该有向图忽略所有边的方向后所生成的无向图。
+    \begin{center}
+        \begin{tikzpicture}
+            \GraphInit[vstyle=normal]
+            \SetGraphUnit{1.5}\SetVertexMath
+            \Vertex{a}
+            \EA(a){b}
+            \SO(a){c}
+            \EA(c){d}
+            \Edge[style={->}](a)(b)
+            \Edge[style={->}](a)(c)
+            \Edge[style={->}](a)(d)
+            \Edge[style={->}](b)(c)
+            \Edge[style={->}](b)(d)
+            \Edge[style={->}](c)(d)
+        \end{tikzpicture}
+        \hspace{3em}
+        \begin{tikzpicture}
+            \GraphInit[vstyle=normal]
+            \SetGraphUnit{1.5}\SetVertexMath
+            \Vertex{a}
+            \EA(a){b}
+            \SO(a){c}
+            \EA(c){d}
+            \Edge[style={-}](a)(b)
+            \Edge[style={-}](a)(c)
+            \Edge[style={-}](a)(d)
+            \Edge[style={-}](b)(c)
+            \Edge[style={-}](b)(d)
+            \Edge[style={-}](c)(d)
+        \end{tikzpicture}
+    \end{center}
+\end{info}

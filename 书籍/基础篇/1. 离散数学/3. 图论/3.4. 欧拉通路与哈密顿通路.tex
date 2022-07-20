@@ -1,0 +1,46 @@
+\section{欧拉通路与哈密顿通路}
+\begin{introduction}
+    \item 欧拉通路与欧拉回路
+    \item 哈密顿通路与哈密顿回路
+\end{introduction}
+
+\subsection{欧拉通路与欧拉回路}
+我们先给出欧拉通路与欧拉回路的定义。
+\begin{definition}[欧拉通路与欧拉回路]\label{def:欧拉通路与欧拉回路}
+    图 $G$ 中的欧拉通路是包含 $G$ 中每一条边的简单通路。图 $G$ 中的欧拉回路是包含图 $G$ 中每一条边的简单回路。
+\end{definition}
+
+\begin{collections}
+    \begin{example}
+        判断下列图中是否存在欧拉回路，若存在，请指出一条欧拉回路，若不存在，则判断其是否存在欧拉通路。
+        \begin{center}
+            \begin{tikzpicture}
+                \SetGraphUnit{1.5}\SetVertexMath
+                \Vertex{a}
+                \EA(a){b}
+                \SO(a){c}
+                \EA(c){d}
+                \Edge[style={-}](a)(b)
+                \Edge[style={-}](a)(d)
+                \Edge[style={-}](b)(c)
+                \Edge[style={-}](c)(d)
+                \coordinate (label) at ($ (c)!0.5!(d) $);
+                \node[below=of label, yshift=1.5em]{$G_1$};
+            \end{tikzpicture}
+            \hspace{3em}
+            \begin{tikzpicture}
+                \SetGraphUnit{1.5}\SetVertexMath
+                \Vertex{a}
+                \EA(a){b}
+                \SO(a){c}
+                \EA(c){d}
+                \Edge[style={->}](a)(d)
+                \Edge[style={->}](d)(c)
+                \Edge[style={->}](c)(b)
+                \Edge[style={->}](b)(a)
+                \coordinate (label) at ($ (c)!0.5!(d) $);
+                \node[below=of label, yshift=1.5em]{$G_2$};
+            \end{tikzpicture}
+        \end{center}
+    \end{example}
+\end{collections}
